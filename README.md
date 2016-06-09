@@ -39,7 +39,6 @@ Note: Above packages/tools correspond to linux-based machines
 #### Directory structure
 
 - **src**: Contains source code files
-- **bin**: Contains binary executables
 - **doc**: Contains documents related to vEPC
 - **scripts**: Contains necessary scripts for using vEPC
 
