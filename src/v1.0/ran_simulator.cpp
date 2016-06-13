@@ -51,64 +51,71 @@ void simulate(int arg) {
 	time_exceeded = false;
 	ran.init(ran_num);
 	ran.conn_mme();
-	
-	// Start time
-	mstart_time = CLOCK::now();	
 
-	// Initial attach
-	ran.initial_attach();
+	while (1) {
+		// Run duration check
+		g_utils.time_check(g_start_time, g_req_dur, time_exceeded);
+		if (time_exceeded) {
+			break;
+		}
 
-	// Authentication
-	ok = ran.authenticate();
-	if (!ok) {
-		TRACE(cout << "ransimulator_simulate:" << " autn failure" << endl;)
-		return;
+		// Start time
+		mstart_time = CLOCK::now();	
+
+		// Initial attach
+		ran.initial_attach();
+
+		// Authentication
+		ok = ran.authenticate();
+		if (!ok) {
+			TRACE(cout << "ransimulator_simulate:" << " autn failure" << endl;)
+			return;
+		}
+
+		// Set security
+		ok = ran.set_security();
+		if (!ok) {
+			TRACE(cout << "ransimulator_simulate:" << " security setup failure" << endl;)
+			return;
+		}
+
+		// Set eps session
+		ok = ran.set_eps_session(g_traf_mon);
+		if (!ok) {
+			TRACE(cout << "ransimulator_simulate:" << " eps session setup failure" << endl;)
+			return;
+		}
+
+		/*
+		// To find RTT
+		if (ran_num == 0) {
+			g_rtt_thread = thread(ping);
+			g_rtt_thread.detach();		
+		}
+		*/ 
+
+		/* Data transfer */
+		ran.transfer_data(g_req_dur);
+		
+		// Detach
+		ok = ran.detach();
+		if (!ok) {
+			TRACE(cout << "ransimulator_simulate:" << " detach failure" << endl;)
+			return;
+		}
+
+		// Stop time
+		mstop_time = CLOCK::now();
+		
+		// Response time
+		mtime_diff_us = std::chrono::duration_cast<MICROSECONDS>(mstop_time - mstart_time);
+
+		/* Updating performance metrics */
+		g_sync.mlock(g_mux);
+		g_tot_regs++;
+		g_tot_regstime += mtime_diff_us.count();		
+		g_sync.munlock(g_mux);			
 	}
-
-	// Set security
-	ok = ran.set_security();
-	if (!ok) {
-		TRACE(cout << "ransimulator_simulate:" << " security setup failure" << endl;)
-		return;
-	}
-
-	// Set eps session
-	ok = ran.set_eps_session(g_traf_mon);
-	if (!ok) {
-		TRACE(cout << "ransimulator_simulate:" << " eps session setup failure" << endl;)
-		return;
-	}
-
-	/*
-	// To find RTT
-	if (ran_num == 0) {
-		g_rtt_thread = thread(ping);
-		g_rtt_thread.detach();		
-	}
-	*/ 
-
-	/* Data transfer */
-	ran.transfer_data(g_req_dur);
-	
-	// Detach
-	ok = ran.detach();
-	if (!ok) {
-		TRACE(cout << "ransimulator_simulate:" << " detach failure" << endl;)
-		return;
-	}
-
-	// Stop time
-	mstop_time = CLOCK::now();
-	
-	// Response time
-	mtime_diff_us = std::chrono::duration_cast<MICROSECONDS>(mstop_time - mstart_time);
-
-	/* Updating performance metrics */
-	g_sync.mlock(g_mux);
-	g_tot_regs++;
-	g_tot_regstime += mtime_diff_us.count();		
-	cout << "ransimulator_simulate:" << " Total registrations: " << g_tot_regs << endl;
-	g_sync.munlock(g_mux);
 }
 
 void check_usage(int argc) {
