@@ -60,7 +60,7 @@ public:
 	char* allocate_str_mem(int);
 	uint8_t* allocate_uint8_mem(int);
 	void time_check(time_t, double, bool&);
-	string exec_cmd(string);
+	int max_ele(vector<int> inp);
 };
 
 extern Utils g_utils;
