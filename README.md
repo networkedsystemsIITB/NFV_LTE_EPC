@@ -1,10 +1,10 @@
 ### Virtualized Evolved Packet Core for LTE Networks (vEPC)
 
-vEPC is a simple virtualized form of Long Term Evolution Evolved Packet Core (LTE EPC). It simulates the working of a typical EPC for handling signaling and data traffic. vEPC is developed in C++11. Current Version is 1.0, and it is released on June 10, 2016.
+vEPC is a simple virtualized form of Long Term Evolution Evolved Packet Core (LTE EPC). It simulates the working of a typical EPC for handling signaling and data traffic. vEPC is developed in C++11. Current Version is 1.0, released on June 10, 2016. We are currently working on a more advanced v2.0.
 
 #### Synopsis
 
-Network Function Virtualization (NFV) is a popular concept in redesigning the radio and core parts of the Mobile Networks. A bulk of NFV design proposals focus on the underlying EPC architecure, which faces severe scalability and flexibility issues. This has set a new trend among Network Equipment manufacturing companies to built commercial implementations of vEPC. All such implementations try to achieve a highly scalable and flexible architecture to suit the needs of future mobile traffic. Although our vEPC does not capture all 3GPP standard specifications and LTE procedures as compared with commercial implementations, it can really be helpful for people across the research domain to experiment with their NFV ideas using our implementation.
+Network Function Virtualization (NFV) is a popular concept being proposed for redesigning various components in telecom networks. A bulk of NFV design proposals focus on EPC, which faces severe scalability and flexibility issues. This has set a new trend among network equipment manufacturing companies to build commercial implementations of vEPC. All such implementations try to achieve a highly scalable and flexible architecture to suit the needs of future mobile traffic. However, no complete open-source free vEPC exists to the best of our knowledge. Our code is a first step in this direction. Note that our code is not fully standards compliant, and is not intended for commercial use. Our code is intended for consumption by researchers to build and evaluate various NFV-based EPC architectures. 
 
 #### List of developed software modules
 
