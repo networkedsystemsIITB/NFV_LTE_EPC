@@ -1,7 +1,7 @@
 #include "sctp_server.h"
 
 SctpServer::SctpServer() {
-	listen_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	listen_fd = socket(AF_INET, SOCK_STREAM, 0);
 	g_utils.handle_type1_error(listen_fd, "Socket error: sctpserver_sctpserver");
 }
 
