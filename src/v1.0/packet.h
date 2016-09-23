@@ -9,7 +9,7 @@
 #include "s1ap.h"
 #include "utils.h"
 
-#define BUF_SIZE 65535
+#define BUF_SIZE 1024
 #define IP_HDR_LEN 20
 #define DATA_SIZE 800
 
