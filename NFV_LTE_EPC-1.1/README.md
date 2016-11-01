@@ -6,8 +6,7 @@ Network Function Virtualization (NFV) is a popular concept being proposed for re
 
 #### High-level Design of vEPC 1.1
 The new improved vEPC design is based on the idea of replacing monolithic EPC components with a distributed and stateless version. Namely monolithic MME, SGW, and PGW components are replaced with their respective distributed version. The following figure shows the complete design. 
-<html><center><img hspace="120" height="400px" width = "560px" src="/doc/doc_source/images/overview.png"><center></html>
-
+<html><center><img hspace="120" height="400px" width = "560px" src="/NFV_LTE_EPC-1.1/doc/doc_source/images/overview.png"><center></html>
 #### Whats new in this version
 
 - Stateless Mobility Management Entity
