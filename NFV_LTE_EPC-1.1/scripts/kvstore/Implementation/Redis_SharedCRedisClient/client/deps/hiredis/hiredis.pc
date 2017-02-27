@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=/usr/local/lib
+includedir=/usr/local/include/hiredis
+
+Name: hiredis
+Description: Minimalistic C client library for Redis.
+Version: 0.13.3
+Libs: -L${libdir} -lhiredis
+Cflags: -I${includedir} -D_FILE_OFFSET_BITS=64
