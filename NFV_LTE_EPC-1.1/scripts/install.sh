@@ -11,3 +11,5 @@ sudo apt-get install iperf3
 sudo apt-get install iperf
 sudo apt-get install htop
 sudo apt-get install ipvsadm
+cd kvstore/Implementation/LevelDB_Disk/server
+sudo bash install.sh
