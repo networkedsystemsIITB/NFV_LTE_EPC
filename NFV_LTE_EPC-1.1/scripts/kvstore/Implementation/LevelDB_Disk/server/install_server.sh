@@ -1,6 +1,10 @@
 #!/bin/bash
 sudo mkdir /home/NFV_LTE_EPC
 sudo chmod u+rwx /home/NFV_LTE_EPC
+mkdir deps
+cd deps
+wget "https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz"
+cd ..
 tar -C /home/NFV_LTE_EPC -xzf deps/go1.6.2.linux-amd64.tar.gz
 
 mkdir -p /home/NFV_LTE_EPC/go_workspace/src/levelmemdb
@@ -12,6 +16,6 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=/home/NFV_LTE_EPC/go_workspace
 
 cp -rp src/* /home/NFV_LTE_EPC/go_workspace/src/levelmemdb
-cp -rp deps/github.com /home/NFV_LTE_EPC/go_workspace/src  #for offline use
-#go get -d github.com/syndtr/goleveldb/leveldb
-#go get -d github.com/syndtr/goleveldb/leveldb/memdb
+# cp -rp deps/github.com /home/NFV_LTE_EPC/go_workspace/src  #for offline use
+go get -d github.com/syndtr/goleveldb/leveldb
+go get -d github.com/syndtr/goleveldb/leveldb/memdb
