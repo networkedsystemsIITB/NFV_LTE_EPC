@@ -13,4 +13,4 @@ sudo apt-get install htop
 sudo apt-get install ipvsadm
 sudo apt-get install libboost-all-dev
 cd kvstore/Implementation/LevelDB_Disk/server
-sudo bash install.sh
+sudo bash install_server.sh
