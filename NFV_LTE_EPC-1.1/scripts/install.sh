@@ -11,6 +11,7 @@ sudo apt-get install iperf3
 sudo apt-get install iperf
 sudo apt-get install htop
 sudo apt-get install ipvsadm
+sudo apt-get install git
 sudo apt-get install libboost-all-dev
 cd kvstore/Implementation/LevelDB_Disk/server
 sudo bash install_server.sh
