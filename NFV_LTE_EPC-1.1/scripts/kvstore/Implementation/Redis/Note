@@ -1,0 +1,2 @@
+KVStore::clear() not yet implemented
+KVRequest::execute() doesn't executes request in given sequence
