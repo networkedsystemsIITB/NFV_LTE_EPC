@@ -12,6 +12,12 @@ sudo apt-get install iperf
 sudo apt-get install htop
 sudo apt-get install ipvsadm
 sudo apt-get install git
+sudo apt-get install libssl-dev
+sudo apt-get install g++
 sudo apt-get install libboost-all-dev
 cd kvstore/Implementation/LevelDB_Disk/server
 sudo bash install_server.sh
+cd ../client
+make
+sudo make install
+echo "COMPLETED"
