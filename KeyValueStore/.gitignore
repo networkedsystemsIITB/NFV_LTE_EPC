@@ -1,0 +1,8 @@
+*~
+*.o
+*.out
+*.a
+*.swp
+PerformanceData/
+deps/
+CMakeFiles/

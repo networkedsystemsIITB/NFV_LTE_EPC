@@ -1,0 +1,6 @@
+[submodule "Implementation/RAMCloud/RAMCloud"]
+	path = Implementation/RAMCloud/RAMCloud
+	url = https://github.com/PlatformLab/RAMCloud.git
+[submodule "Implementation/Redis/client/src/hiredis-vip"]
+	path = Implementation/Redis/client/src/hiredis-vip
+	url = https://github.com/vipshop/hiredis-vip.git
