@@ -3,9 +3,9 @@ sudo add-apt-repository ppa:webupd8team/java -y
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
 sudo apt-get install oracle-java8-set-default
-#git clone "https://github.com/PlatformLab/RAMCloud.git"
+git clone "https://github.com/PlatformLab/RAMCloud.git"
 cd RAMCloud
-#git checkout 7cba5e2de394d1fbd62965f2cff367431eb12c11
+git checkout 7cba5e2de394d1fbd62965f2cff367431eb12c11
 git submodule update --init --recursive
 ln -s ../../hooks/pre-commit .git/hooks/pre-commit
 make -j16

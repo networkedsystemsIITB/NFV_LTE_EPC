@@ -1,1 +1,1 @@
-bash ../install_RAMCloud.sh
+cd .. && bash install_RAMCloud.sh

@@ -8,6 +8,8 @@ install:	install_common install_deps KVImplRedisHiredisVip.o $(LIB_NAME)
 	cp -f bin/$(LIB_NAME) $(INSTALL_PATH)/lib
 
 install_deps:
+	-git clone https://github.com/vipshop/hiredis-vip.git
+	-cd hiredis-vip && git checkout -f f12060498004494a3e1de11f653a8624f3d218c3
 	cd hiredis-vip && make && make install
 
 install_common:

@@ -1,8 +1,6 @@
-#g++ -std=c++11 -g -c -I/home/$(USER)/RAMCloud/install/include KVImplRAMCloud.cpp -lboost_serialization -pthread -lramcloud -Wl,-rpath=/home/$(USER)/RAMCloud/install/bin
-
 PATH_TO_RAMCLOUD = ../../RAMCloud
 
-GCC = g++ -std=c++11 #-g #Remove -g later
+GCC = g++ -std=c++11 
 #LIBS = -lboost_serialization -pthread -lramcloud -Wl,-rpath=$(PATH_TO_RAMCLOUD)/install/bin #-Wl,linker options = ld linker options
 INCLUDES = -I$(PATH_TO_RAMCLOUD)/install/include
 
@@ -22,12 +20,12 @@ ifneq ($(OPLEVEL),0)
 OPL = -O$(OPLEVEL)
 endif
 
-#install_all: all install
+install_all: all install
 
 all:	init $(BINPATH)/KVImplRAMCloud.o
 
 init:
-	#bash ../../install_RAMCloud.sh
+	cd ../../ && bash install_RAMCloud.sh
 	mkdir -p bin
 
 $(BINPATH)/KVImplRAMCloud.o:	$(IMPLPATH)/KVImplRAMCloud.cpp
