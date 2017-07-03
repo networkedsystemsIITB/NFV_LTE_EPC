@@ -1,6 +1,6 @@
 ### Virtualized Evolved Packet Core for LTE Networks (vEPC)
 
-vEPC is a simple virtualized form of Long Term Evolution Evolved Packet Core (LTE EPC). It simulates the working of a typical EPC for handling signaling and data traffic. vEPC is developed in C++11. First opensource version (1.0) was released on June 10, 2016. A more advanced distributed LTE EPC implementation (v2.0) was released on .
+vEPC is a simple virtualized form of Long Term Evolution Evolved Packet Core (LTE EPC). It simulates the working of a typical EPC for handling signaling and data traffic. vEPC is developed in C++11. First opensource version (1.0) was released on June 10, 2016. A more advanced distributed LTE EPC implementation (v2.0) was released on 30th June 2017.
 
 #### Synopsis
 
