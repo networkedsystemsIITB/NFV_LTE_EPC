@@ -9,6 +9,7 @@ all:	hss.out mme.out pgw.out ransim.out sgw.out sink.out
 
 G++ = g++ -std=c++0x -std=c++11 -O3 -std=gnu++0x -ggdb -I./client -Wno-deprecated -fpermissive -w
 
+#----please use appropriate LIB flag for different data stores
 LIB = -lkvstore -lkvs_redis  
 #LIB = -lkvstore -lkvs_leveldb
 #LIB = -lkvstore -lkvs_memcached -lmemcached
