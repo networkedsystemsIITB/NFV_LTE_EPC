@@ -32,7 +32,7 @@
  * 		2 RAMCLOUD
  * 		3 MEMCACHED CONFIG 1
  * 		4 MEMCACHED CONFIG 2
- * 		99 FOR HSS, RAN AND SINK MODULE
+ * 		99 FOR RAN AND SINK MODULE
  */
  
  /* TIMEOUT FOR FAULT TOLERANT TIMEOUT */
@@ -88,27 +88,28 @@
 
 
 #if DSR == 0
-	#include <kvstore/KVStoreHeader_v2.h>  // for leveldb
+	#include <kvstore/KVStoreHeader.h>  // for leveldb
 	#define PDS "10.129.26.81:8090"
 #endif
 	
 #if DSR == 1
-	#include <kvstore/KVStoreHeader_v2.h> 
+	#include <kvstore/KVStoreHeader.h>  //for redis
 	#define PDS "10.129.28.141:7001"
 #endif
 
 
 #if DSR == 2
-#include "/home/mme1/Documents/generic-ramcloud/MTP_New-master/Implementation/RAMCloud/client/src/KVStore.h"  //ramcloud	
+	#include <kvstore/KVStoreHeader.h>   // for ramcloud	
 	#define PDS "tcp:host=10.129.26.81,port=11100";
 	#endif
 
 #if DSR == 3
-	#include <kvstore/KVStoreHeader_v2.h>
+	#include <kvstore/KVStoreHeader.h>  //for memcacheDB single server config
 	#define PDS "--SERVER=10.129.28.141:12000"
 #endif
+
 #if DSR == 4
-	#include <kvstore/KVStoreHeader_v2.h>
+	#include <kvstore/KVStoreHeader.h>  //for memcacheDB multiple servers config
 	#define PDS "--SERVER=10.129.28.141:12000 --SERVER=10.129.26.246:12000 --SERVER=10.129.26.81:12000"
 #endif
 using namespace std;
