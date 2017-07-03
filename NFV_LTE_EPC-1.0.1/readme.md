@@ -21,3 +21,7 @@ This version includes an S1 based handover procedure integrated to the v_1.0 sou
 #### Developer Guide
 
 Please find the document *developer_manual.pdf* under v_1.0 parent folder for understanding source code structure. The handover procedures and code changes are heavily commented by in-code documentation.
+
+
+We have followed the following documentation to design our S1 based handover procedure.
+[link](http://www.netmanias.com/en/post/techdocs/6286/emm-handover-lte/emm-procedure-6-handover-without-tau-part-3-s1-handover)
