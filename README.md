@@ -44,5 +44,4 @@ Note: Above packages/tools correspond to linux-based machines
 
 #### Contact
 
-- Sadagopan N S, ssnattamai[AT]gmail.com
 - Prof. Mythili Vutukuru, mythili[AT]cse.iitb.ac.in
