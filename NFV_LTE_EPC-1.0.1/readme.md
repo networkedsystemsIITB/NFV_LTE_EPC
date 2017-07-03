@@ -1,6 +1,6 @@
 ### Virtualized Evolved Packet Core for LTE Networks (vEPC revision 1.0.1)
 
-####Whats new in this version
+### Whats new in this version
 This version includes an S1 based handover procedure integrated to the v_1.0 source. The handover procedure covers all control plane steps:
 
 1) Triggering Handover from source RAN
