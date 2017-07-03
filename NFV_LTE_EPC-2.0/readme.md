@@ -44,8 +44,8 @@ Please find the document *developer_manual_2.0.pdf* under the *doc* folder. It c
 #### Authors
 
 1. [Pratik Satapathy](https://www.linkedin.com/in/pratik-satapathy-5b175524/), Master's student (2015-2017), Dept. of Computer Science and Engineering, IIT Bombay.
-- [Jash Kumar Dave](https://www.linkedin.com/in/jash-dave-5698124b/), Master's student (2015-2017), Dept. of Computer Science and Engineering, IIT Bombay.
-- [Prof. Mythili Vutukuru](https://www.cse.iitb.ac.in/~mythili/), Dept. of Computer Science and Engineering, IIT Bombay.
+2. [Jash Kumar Dave](https://www.linkedin.com/in/jash-dave-5698124b/), Master's student (2015-2017), Dept. of Computer Science and Engineering, IIT Bombay.
+3. [Prof. Mythili Vutukuru](https://www.cse.iitb.ac.in/~mythili/), Dept. of Computer Science and Engineering, IIT Bombay.
 
 #### Contact
 
