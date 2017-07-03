@@ -1,0 +1,163 @@
+--- ran_simulator.cpp	2017-07-03 03:17:18.000000000 +0530
++++ ran_simulator_bk.cpp	2017-07-03 09:43:42.059685322 +0530
+@@ -13,8 +13,8 @@
+ thread g_rtt_thread;
+ TrafficMonitor g_traf_mon;
+ 
+-Ran ranS; 
+-Ran ranT; 
++Ran ranS; //Source ran for handover operation
++Ran ranT; //Target ran for handover operation
+ 
+ 
+ void utraffic_monitor() {
+@@ -42,10 +42,9 @@
+ }
+ 
+ 
+-
++//This function handles all incoming MME connection for Handover purposes
+ int handle_mme_conn(int conn_fd,int dummy) {
+ 
+-	//cout<<"handle mme con"<<endl;
+ 	bool res;
+ 	Packet pkt;
+ 
+@@ -54,44 +53,43 @@
+ 	if (pkt.s1ap_hdr.mme_s1ap_ue_id > 0) {
+ 		switch (pkt.s1ap_hdr.msg_type) {
+ 
++		//packet numbers from 1-6 are already used for attach and detach operations
+ 		case 7:
+-			cout << "Target Ran: handle handover request:" << " case 7:" << endl;
++			TRACE(cout << "Target Ran: handle handover request:" << " case 7:" << endl;)
+ 			ranT.handle_handover(pkt);
+ 
+ 			break;
++			
+ 		case 8:
+-			cout << "Source Ran:receive indirect teid from sgw:" << " case 8:" << endl;
++			TRACE(cout << "Source Ran:receive indirect tunnel from sgw:" << " case 8:" << endl;)
+ 			ranS.indirect_tunnel_complete(pkt);
+ 			break;
++			
+ 		case 9:
+-			cout << "Source Ran to intiate a teardown for indirect teid:" << " case 9:" << endl;
++			TRACE(cout << "Source Ran to intiate a teardown for indirect teid:" << " case 9:" << endl;)
+ 			ranS.request_tear_down(pkt);
+ 
+ 			break;
++			
+ 			/* For error handling */
+ 		default:
+-			cout << "ran_simulator_handle_mme:" << " default case: handover" << endl;
++			TRACE(cout << "ran_simulator_handle_mme:" << " default case: handover" << endl;)
+ 			break;
+  		}
+  	}
+ 	return 1;
+ }
+-//server created to receive mme initiated incoming connection to Ran
+-void start_signal_monitor(int a) {
+ 
+-	int threadCount = 2;//some value,1 is also enough
+-	//	cout<<"==1=="<<endl;
+ 
+-	//server.run(g_ran_sctp_ip_addr, g_ran_port, threadCount, handle_mme_conn);
+-	server.run(g_ran_sctp_ip_addr, g_ran_port, threadCount, handle_mme_conn);
+-	cout<<"==signal monitor started=="<<endl;
++void handover_traffic_monitor() {
++
++	server.run(g_ran_sctp_ip_addr, g_ran_port, 1, handle_mme_conn);
+ 	
+ } 
+ 
+ void simulateHandover() {
+ 	
+-	cout<<"==2=="<<endl;
+-	cout<<"simulating.Handover between sRan and tRan\n";
++	TRACE(cout<<"simulating.Handover between sRan and tRan\n";)
+ 
+ 	CLOCK::time_point start_time;
+ 	CLOCK::time_point stop_time;
+@@ -109,25 +107,24 @@
+ 	ranT.init(2);// target enodeb initialization
+ 
+ 	ranS.conn_mme();
+-	cout<<"came here"<<endl;
+ 
+ 	ranS.initial_attach();
+ 	ok = ranS.authenticate();
+ 	
+ 	if (!ok) {
+-		cout<<"auth_error";
++		TRACE(cout << "ransimulator_simulate:" << " autn failure" << endl;)
+ 	}
+ 	
+ 	ok = ranS.set_security();
+ 	
+ 	if (!ok) {
+-		cout<<"set_Sec_error";
++		TRACE(cout << "ransimulator_simulate:" << " security setup failure" << endl;)
+ 	}
+ 	
+ 	ok = ranS.set_eps_session(g_traf_mon);
+ 	
+ 	if (!ok) {
+-		cout<<"set_eps_error";
++		TRACE(cout << "ransimulator_simulate:" << " eps session setup failure" << endl;)
+ 	}
+ 	
+ 	//attach complete
+@@ -136,7 +133,7 @@
+ 
+ 	ranS.initiate_handover();
+ 
+-	//sleep for some time, then teardown
++	//sleep for some time to simulate disconnection and rejoining of UE to EnodeBs, then teardown
+ 	usleep(500000);
+ 
+ 	//here ranT signals that ue has connected to tRan and its ready to take over
+@@ -146,7 +143,7 @@
+ 	stop_time = CLOCK::now();
+ 
+ 	/* Response time */
+-	time_diff_us = std::chrono::duration_cast<MICROSECONDS>(stop_time - start_time);
++	time_diff_us = std::chrono::duration_cast<MICROSECONDS>((stop_time - start_time));
+ 	cout <<"duration including sleep time "<< time_diff_us.count()<<" \n";
+ 
+ }
+@@ -245,7 +242,7 @@
+ 
+ void init(char *argv[]) {
+ 	g_start_time = time(0);
+-	g_threads_count = 2;//atoi(argv[1]);
++	g_threads_count = atoi(argv[1]);
+ 	g_req_dur = atoi(argv[2]);
+ 	g_tot_regs = 0;
+ 	g_tot_regstime = 0;
+@@ -292,20 +289,13 @@
+ 
+ void run() {
+ 	int i;
+-	g_threads_count = 1;
+-	cout<<"inside run 11 \n";
+-	
+-	g_threads[0] = thread(start_signal_monitor, 0);
+-	cout<<"inside run 21  \n";
+ 	
++	g_threads[0] = thread(handover_traffic_monitor);	
+ 	g_threads[1] = thread(simulateHandover);
+-	cout<<"inside run 31  \n";
+ 	
+-	for (i = 0; i < 3; i++) {		
+-		if (g_threads[i].joinable()) {
+-			g_threads[i].join();
+-		}		
+-	}	
++	if (g_threads[0].joinable())g_threads[i].join();	
++	if (g_threads[1].joinable())g_threads[i].join();
++				
+ }
+ 
+ void print_results_extra() {
