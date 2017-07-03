@@ -49,5 +49,6 @@ Please find the document *developer_manual_2.0.pdf* under the *doc* folder. It c
 
 #### Contact
 
-- Pratik Satapathy, pratik[AT]cse.iitb.ac.in
+- Pratik Satapathy, pratiksatapathy[AT]gmail.com
+- Jash Dave, jashdave23[AT]gmail.com
 - Prof. Mythili Vutukuru, mythili[AT]cse.iitb.ac.in
