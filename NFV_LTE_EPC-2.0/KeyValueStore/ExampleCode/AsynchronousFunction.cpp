@@ -8,6 +8,10 @@
 
  //Memcached
  g++ -std=c++11 -O3 AsynchronousFunction.cpp -lkvstore -lboost_serialization -pthread -lkvs_memcached -lmemcached
+
+ //RAMCloud
+ g++ -std=c++11 -O3 AsynchronousFunction.cpp -L../Implementation/RAMCloud/RAMCloud/install/lib/ramcloud/ -lkvstore -lboost_serialization -pthread -lkvs_ramcloud -lramcloud -lprotobuf -lpcrecpp -lboost_system -lzookeeper_mt
+
 */
 
 #include <iostream>

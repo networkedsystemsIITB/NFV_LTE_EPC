@@ -20,8 +20,9 @@
 \section{Client Installation}
 To install a client for a particular key-value store go to path \\ ``KeyValueStore/Implementation/(Your required key-value store)/client/src/" and run the make file with required permissions. Note that default target for make file is to compile and install. Also note that it may download few dependencies so make sure you have working internet connection.
 
-Installing the client installs a common library kvs\_kvstore and key-value store specific libraries vis kvs\_redis for Redis, kvs\_memcached and memcached for Memcached and kvs\_leveldb for LevelDB. You must link to these libraries while producing your final binary. You must also link boost\_serialization and pthread library.
+Installing the client installs a common library kvs\_kvstore and key-value store specific libraries viz kvs\_redis for Redis, kvs\_memcached and memcached for Memcached, kvs\_leveldb for LevelDB and kvs\_ramcloud ramcloud protobuf pcrecpp boost\_system zookeeper\_mt for RAMCloud. You must link to these libraries while producing your final binary. You must also link boost\_serialization and pthread libraries.
 
+For running the code you may be required to set the shared library path for Memcached and RAMCloud. For this please set the LD\_LIBRARY\_PATH variable to ``/usr/local/lib" for Memcached and ``KeyValueStore/Implementation/RAMCloud/RAMCloud/install/lib/ramcloud/" for RAMCloud.
 \section{Server Installation}
 To install a server for a particular key-value store go to path \\ ``KeyValueStore/Implementation/(Your required key-value store)/server/" run the install\_server.sh script with required permission. Note that it may download few dependencies so make sure you have working internet connection.
 
