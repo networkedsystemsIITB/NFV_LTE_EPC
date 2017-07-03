@@ -15,9 +15,9 @@ This version includes an S1 based handover procedure integrated to the v_1.0 sou
 - **src**: Contains source code files
 #### User Guide
 
-Please follow the document *user_manual.pdf* from v_1.0 to setup the EPC in separate virtual machines. Source contains ran_simulator.cpp which performs normal attach and detach operation experimentation. ran_simulator_handover contains handover flow of a UE where a single UE performs handover from a particular sourceRAN to TargetRAN.
+1) Please follow the document *user_manual.pdf* from v_1.0 to setup the EPC in separate virtual machines. Source contains ran_simulator.cpp which performs normal attach and detach operation experimentation. ran_simulator_handover contains handover flow of a UE where a single UE performs handover from a particular sourceRAN to TargetRAN.
 
-Please rename the ran_simulator_handover.cpp to ran_simulator.cpp to run the handover based experiments. Follow identical runnning instruction (as of v_1.0) to start all EPC components. The handover procedure on completion at ran_simulator prints all performed steps and total time taken for the handover.
+2) Please rename the ran_simulator_handover.cpp to ran_simulator.cpp to run the handover based experiments. Follow identical runnning instruction (as of v_1.0) to start all EPC components. The handover procedure on completion at ran_simulator prints all performed steps and total time taken for the handover.
 #### Developer Guide
 
 Please find the document *developer_manual.pdf* under v_1.0 parent folder for understanding source code structure. The handover procedures and code changes are heavily commented by in-code documentation.
