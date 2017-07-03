@@ -32,6 +32,7 @@ Note: Above packages/tools correspond to Linux-based machines
 - **src**: Contains source code files of vEPC 2.0
 - **doc**: Contains documents related to vEPC 2.0
 - **scripts**: Contains necessary scripts for installing and experimenting with vEPC 2.0
+- **KeyValueStore**: Contains the interface and implementation of various key-value stores
 
 #### User Manual
 
