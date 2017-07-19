@@ -1,7 +1,7 @@
 #include "../../NFV_LTE_EPC-1.0/src/sctp_server.h"
 
 SctpServer::SctpServer() {
-	listen_fd = socket(AF_INET, SOCK_STREAM, 0);
+	listen_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP);
 	g_utils.handle_type1_error(listen_fd, "Socket error: sctpserver_sctpserver");
 }
 
