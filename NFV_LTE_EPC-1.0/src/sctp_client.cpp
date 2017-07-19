@@ -1,7 +1,7 @@
 #include "../../NFV_LTE_EPC-1.0/src/sctp_client.h"
 
 SctpClient::SctpClient() {
-	conn_fd = socket(AF_INET, SOCK_STREAM, 0);
+	conn_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP);
 	g_utils.handle_type1_error(conn_fd, "Socket error: sctpclient_sctpclient");
 }
 
