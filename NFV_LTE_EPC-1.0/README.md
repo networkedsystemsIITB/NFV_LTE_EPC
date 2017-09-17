@@ -58,5 +58,5 @@ Please find the document *developer_manual.pdf* under the *doc* folder. It conta
 
 #### Contact
 
-- Sadagopan N S, ssnattamai[AT]gmail.com
+- Sadagopan N S, sadagns[AT]gmail.com
 - Prof. Mythili Vutukuru, mythili[AT]cse.iitb.ac.in
