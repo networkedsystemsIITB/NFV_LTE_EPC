@@ -40,7 +40,7 @@ Note: Above packages/tools correspond to linux-based machines
 1. [Sadagopan N S](https://www.linkedin.com/in/sadagopan-n-s-b8184a61), Master's student (2014-2016), Dept. of Computer Science and Engineering, IIT Bombay.
 2. [Pratik Satapathy](https://www.linkedin.com/in/pratik-satapathy-5b175524/), Master's student (2015-2017), Dept. of Computer Science and Engineering, IIT Bombay.
 3. [Jash Kumar Dave](https://www.linkedin.com/in/jash-dave-5698124b/), Master's student (2015-2017), Dept. of Computer Science and Engineering, IIT Bombay.
-4. [Trishal Patel](https://www.cse.iitb.ac.in/~trishal/), Master's student (2016-2018), Dept. of Computer Science and Engineering, IIT Bombay.
+4. [Trishal Patel](https://www.cse.iitb.ac.in/~mythili/), Master's student (2016-2018), Dept. of Computer Science and Engineering, IIT Bombay.
 5. [Prof. Mythili Vutukuru](https://www.cse.iitb.ac.in/~mythili/), Dept. of Computer Science and Engineering, IIT Bombay.
 
 #### Contact
